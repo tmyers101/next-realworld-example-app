@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { useRouter } from "next/router";
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import useSWR from "swr";
 
 import ArticlePreview from "components/article/ArticlePreview";
@@ -32,6 +32,7 @@ const ArticleList = () => {
   const { asPath, pathname, query } = router;
   const { favorite, follow, tag, pid } = query;
   const isProfilePage = pathname.startsWith(`/profile`);
+
 
   const getFetchURL = () => {
     switch (true) {
@@ -71,15 +72,15 @@ const ArticleList = () => {
   const { articles, articlesCount } = data;
   setPageCount(articlesCount);
 
-  if (articles?.length === 0) {
-    return <EmptyMessage>No articles are here... yet.</EmptyMessage>;
-  }
+  // if (articles?.length === 0) {
+  //   return <EmptyMessage>No articles are here... yet.</EmptyMessage>;
+  // }
 
   return (
     <>
-      {articles?.map((article) => (
+      {/* {articles?.map((article) => (
         <ArticlePreview key={article.slug} article={article} />
-      ))}
+      ))} */}
 
       <Maybe test={articlesCount && articlesCount > 20}>
         <Pagination
