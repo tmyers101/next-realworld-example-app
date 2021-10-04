@@ -18,14 +18,14 @@ const CommentList = ({ pid }) => {
   if (error) return <ErrorMessage message="Cannot load comments..." />;
   if (!data) return <LoadingSpinner />;
 
-  const { comments } = data;
+  // const { comments } = data;
 
   return (
     <>
       <CommentInput />
-      {comments?.map((comment: CommentType) => (
+      {/* {comments?.map((comment: CommentType) => (
         <Comment key={comment.id} comment={comment} />
-      ))}
+      ))} */}
     </>
   );
 };
